@@ -23,7 +23,10 @@ OUTPUT_FILE = OUTPUT_DIR / "entry.txt"
 
 
 def main() -> None:
-    source = LINE_FILE.read_bytes()
+    try:
+        source = LINE_FILE.read_bytes()
+    except FileNotFoundError as exc:
+        raise RuntimeError(f"line.txt not found next to main.py: {exc}") from exc
     try:
         text = source.decode("utf-8", errors="strict")
     except UnicodeDecodeError as exc:
