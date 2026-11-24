@@ -1,0 +1,1 @@
+LGTM. The diff is clean, the tests pass, and I have made my peace with maintaining this until the heat death of the codebase.
